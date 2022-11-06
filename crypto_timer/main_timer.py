@@ -1,24 +1,37 @@
-from rsa_timer.timer import *
+from rsa_timer.rsa_timer import *
 
 
-def overall_timer():
+def overall_timer(key_sizes=2000, n_iterations=1):
     """Repeatedly calls respective algo operations function for time measure for key sizes
 
        Args:
-
+        key_sizes (int) : no of keysizes to measure time ( default is 2000)
+        n_iterations (int) : no of iterations to measure time ( default is 1)
 
        Returns:
            list of key_size_list and time_list
              """
 
-    time_ls = []
+    size_ls = []
     key_ls = []
-    key_size_from = 512
-    key_size_to = 2048
-    n_iterations = 20
+    enc_ls = []
+    dec_ls = []
+    key_size_from = 800
+    key_size_to = key_size_from + key_sizes
     for key_size in range(key_size_from, key_size_to+1):
-        res_ls = rsa_key_time(key_size, iterations=n_iterations)
-        run_time = res_ls[1]
-        time_ls.append(run_time)
-        key_ls.append(key_size)
-    return [key_ls, time_ls]
+        plain_text = 'encrypt me'
+        plain_text_bytes = str.encode(plain_text)
+        #   print(sys.getsizeof(plain_text_bytes))
+        #   print(plain_text_bytes)
+        #   print(key_size)
+        res_ls = rsa_time(plain_text_bytes, key_size, iterations=n_iterations)
+        key_size = res_ls[0]
+        key_time = res_ls[1]
+        enc_time = res_ls[2]
+        dec_time = res_ls[3]
+        size_ls.append(key_size)
+        key_ls.append(key_time)
+        enc_ls.append(enc_time)
+        dec_ls.append(dec_time)
+
+    return [size_ls, key_ls, enc_ls, dec_ls]

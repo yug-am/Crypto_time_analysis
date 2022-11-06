@@ -8,4 +8,6 @@
 
 #### ToDo
 
-- [ ] Implement all three in one graph
+- [ ] Scale time better
+- [ ] Add GUI
+- [x] Implement all three in one graph
