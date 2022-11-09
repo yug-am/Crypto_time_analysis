@@ -14,11 +14,12 @@ def avg(ls):
     return sum(ls) / len(ls)
 
 
-def rsa_time(plain_text_bytes, key_size=512, iterations=1):
+def rsa_time(plain_text_bytes, time_factor,key_size=512, iterations=1):
     """Generates key for specified key size and returns with time of generation in milli seconds
 
     Args:
         plain_text_bytes (bytes) : Plain text to be encrypted
+        time_factor (int) : time factor to multiply values by
         key_size (int): Key size for key generation more than 512  ( default is 512)
         iterations (int): no. of iterations for average time per operation  ( default is 1)
 
@@ -65,7 +66,7 @@ def rsa_time(plain_text_bytes, key_size=512, iterations=1):
     #   pvt_num = private_key.private_numbers()
     #   p=pvt_num.p
     #   q=pvt_num.q
-    time_factor = 100000
+    #   time_factor = 100000
     key_avg = avg(key_time)*time_factor
     enc_avg = avg(enc_time)*time_factor
     dec_avg = avg(dec_time)*time_factor

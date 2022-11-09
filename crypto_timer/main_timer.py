@@ -1,11 +1,14 @@
 from rsa_timer.rsa_timer import *
 
 
-def overall_timer(key_sizes=2000, n_iterations=1):
+def overall_timer(plain_text_bytes, time_factor, key_size_from=800, key_sizes=2000, n_iterations=1):
     """Repeatedly calls respective algo operations function for time measure for key sizes
 
        Args:
-        key_sizes (int) : no of keysizes to measure time ( default is 2000)
+        time_factor (int) : time factor to scale time values by
+        plain_text_bytes (bytes) : bytes data to be encrypted
+        key_size_from (int) : Initial starting of key size
+        key_sizes (int) : no of key sizes to measure time ( default is 2000)
         n_iterations (int) : no of iterations to measure time ( default is 1)
 
        Returns:
@@ -16,15 +19,12 @@ def overall_timer(key_sizes=2000, n_iterations=1):
     key_ls = []
     enc_ls = []
     dec_ls = []
-    key_size_from = 800
     key_size_to = key_size_from + key_sizes
     for key_size in range(key_size_from, key_size_to+1):
-        plain_text = 'encrypt me'
-        plain_text_bytes = str.encode(plain_text)
         #   print(sys.getsizeof(plain_text_bytes))
         #   print(plain_text_bytes)
         #   print(key_size)
-        res_ls = rsa_time(plain_text_bytes, key_size, iterations=n_iterations)
+        res_ls = rsa_time(plain_text_bytes, time_factor, key_size, iterations=n_iterations)
         key_size = res_ls[0]
         key_time = res_ls[1]
         enc_time = res_ls[2]

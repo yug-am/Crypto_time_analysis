@@ -3,6 +3,7 @@
 # Compiled source #
 ###################
 *.com
+*.pyc
 *.class
 *.dll
 *.exe
