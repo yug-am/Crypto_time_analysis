@@ -7,7 +7,7 @@ def overall_timer(plain_text_bytes, time_factor, key_size_from=800, key_sizes=20
        Args:
         time_factor (int) : time factor to scale time values by
         plain_text_bytes (bytes) : bytes data to be encrypted
-        key_size_from (int) : Initial starting of key size
+        key_size_from (int) : Initial starting of key size ( default is 800)
         key_sizes (int) : no of key sizes to measure time ( default is 2000)
         n_iterations (int) : no of iterations to measure time ( default is 1)
 

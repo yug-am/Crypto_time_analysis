@@ -8,6 +8,7 @@
 
 #### ToDo
 
-- [ ] Scale time better
+- [ ] Implement DES
 - [ ] Add GUI
+- [x] Scale time better
 - [x] Implement all three in one graph

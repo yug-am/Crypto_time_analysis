@@ -3,21 +3,43 @@ import matplotlib.pyplot as plt
 import pickle
 import math
 
-def y_coordinates_generator(ls):
+
+def ticks_generator(axis_max, handle_overwriting=True):
     """generates list of coordinates into numbers in to powers of 10
-
-
                       Args:
-                          ls (list) : list of values
-
+                          axis_max (int) : max coordinate values of that axis
+                          handle_overwriting (bool) :handle overwriting( default is True)
                       Returns:
-                          coordinates_ls (list) : list of log scaled
+                          coordinates_ls (list) : list of  axis values
               """
-    #min_ele = min(ls)
-    max_ele = max(ls)
-    #min_dig = (len(str(math.floor(min_ele))))
-    max_dig = (len(str(math.floor(max_ele))))
-    new_ls = []
+    #   min_ele = min(ls)
+    #   max_ele = max(ls)
+    #   min_dig = (len(str(math.floor(min_ele))))
+    #   max_dig = (len(str(math.floor(max_ele))))
+
+    print("Axis max{am} in ticks gen func".format(am=axis_max))
+    axis_max_int = int(axis_max)
+    print("Int of Axis max {am} in ticks gen func".format(am=axis_max_int))
+    max_dig = len(str(axis_max_int))
+    coor_ls = []
+    ticks_ls = []
+    init_dig = 0
+    if handle_overwriting:
+        init_dig = max_dig-3
+    for i in range(init_dig, max_dig):
+        coor_ls.append(10**i)
+        ticks_ls.append("10^"+str(i))
+    coor_ls[0] = 0
+    ticks_ls[0] = "10^0"
+    if axis_max % 10:
+        coor_ls.append(axis_max)
+        ticks_ls.append("10^"+str(max_dig))
+    print(coor_ls)
+    print(ticks_ls)
+    #   print("Axis max{am} in ticks gen func".format(am=axis_max))
+    print("Digits in max {dig_max} in ticks gen func".format(dig_max=max_dig))
+
+    return [coor_ls, ticks_ls]
 
 
 def generate_coordinates_from_log(ls):
@@ -132,9 +154,9 @@ def grapher():
     key_gen_file_name = "key_gen_size_file"
     enc_file_name = "enc_size_file"
     dec_file_name = "dec_size_file"
-
+    plot_key_gen = False
     read_from_file = True
-    x_axis_tick_interval = 500
+    #   x_axis_tick_interval = 500
     if not read_from_file:
         key_size_rounds = 2000
         n_iterations = 1
@@ -176,23 +198,31 @@ def grapher():
     key_ls = point_club(key_ls, gp_size)
     enc_ls = point_club(enc_ls, gp_size)
     dec_ls = point_club(dec_ls, gp_size)
-    #key_ls_scaled = log_scale(key_ls)
-    plt.plot(size_ls, key_ls, marker='x', label="Key gen time")
-    plt.plot(size_ls, enc_ls, marker='x',label="enc time")
-    plt.plot(size_ls, dec_ls, marker='x',label="dec time")
+    #   key_ls_scaled = log_scale(key_ls)
+    fig, ax = plt.subplots()
+    if plot_key_gen:
+        ax.plot(size_ls, key_ls, marker='x', label="Key gen time")
+    ax.plot(size_ls, enc_ls, marker='x', label="enc time")
+    ax.plot(size_ls, dec_ls, marker='x', label="dec time")
     #   plt.xlim(500, 2500)
-    key_ls = log_scale(key_ls)
+    y_mini, y_maxi = ax.get_ylim()
+    print('Y axis,Min {y_min} Max {y_max}.'
+          .format(y_min=y_mini, y_max=y_maxi))
+
+    #   key_ls = log_scale(key_ls)
 
     #   x_labels = size_ls
     #   x_labels[0] = '500'
     offset = 550
     size_ls_offset = [int(i-offset+1) for i in size_ls]
     plt.xticks(size_ls, size_ls_offset)
+    y_coor_ls, y_ticks_ls = ticks_generator(y_maxi)
 
+    plt.yticks(y_coor_ls, y_ticks_ls)
     #   plt.yticks([0, 10, 100, 1000,10000], ['10^0', '10^1', '10^2', '10^3','10^4'])
     #   min_y = int(min(min(key_ls), min(enc_ls), min(dec_ls)))
     #   max_y = int(max(max(key_ls), max(enc_ls), max(dec_ls)))
-    key_ls_label = generate_coordinates_from_log(key_ls)
+    #key_ls_label = generate_coordinates_from_log(key_ls)
 
     #   y_coordinates = generate_coordinates_from_log(size_ls)
     #   y_coordinates = generate_coordinates(min_y, max_y)
