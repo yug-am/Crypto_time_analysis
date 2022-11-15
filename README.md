@@ -1,18 +1,33 @@
-## Time for RSA key operations are a function of key size
+## RSA operations time plotting
+Plotting the time(in milliseconds) of following operations of [RSA cryptosystem ](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) using 
+[Cryptography](https://pypi.org/project/cryptography/) library in [Python](https://www.python.org/).
 
-
-#### Operations under consideration
-
+Operations :
 - Encryption
 - Decryption
 - Key size
 
-## Images
+This is aimed at the recreation of  the graph in <a href="#Cryptography Book">Cryptography Book</a> Chapter 6: Public Key Crptography and RSA, Page 79.
+
+
+## Features 
+- Saves and read data from respective data files in data_dump.
+- Ability to set starting key size, key size range, no of iterations per key size, time unit and y axis ticks(labels).
+
+
 
 ![RSA time with key](./readme_images/rsa_w_key_img.png)
+
 ![RSA time without key](./readme_images/rsa_wo_key_img.png)
 
-## Libraries
+## Setup
+Clone this repo to your desktop and install the <a href="#Libraries used">Libraries used</a> using [pip](https://pypi.org/project/pip/).
+
+## Usage
+After you clone this repo to your desktop, go to its root directory and run with main.py file in your Pyhton IDE respective graph matplotlib dialog with output the graph.
+
+
+## Libraries used
 
 This software uses the following open source packages:
 
@@ -21,4 +36,16 @@ This software uses the following open source packages:
 - [Cryptography](https://pypi.org/project/cryptography/)
 - [Time](https://docs.python.org/3/library/time.html)
 
+
+
+## Cryptography Book
+Cryptography, Network Security, and Cyber Laws [Book](https://www.cengage.co.in/book-list/print/cryptography-network-security-and-cyber-laws-sl) authored by  Bernard L. Menezes | Ravinder Kumar.
+ISBN: 9789386858948
+Edition: 1st
+Year : 2018
+
+
+## Constraints ⚠
+[Cryptography library](https://pypi.org/project/cryptography/) used has limitation of minimum key size of 800 to avoid errors of  Data too long for key size
+even for empty string.
 

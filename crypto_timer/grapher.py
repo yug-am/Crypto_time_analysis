@@ -15,7 +15,7 @@ def grapher():
     key_gen_file_name = algo_name+"_key_gen_size_file"
     enc_file_name = algo_name+"_enc_size_file"
     dec_file_name = algo_name+"_dec_size_file"
-    plot_key_gen = False
+    plot_key_gen = True
     read_from_file = True
     handle_overwriting = False
     equi_spaced_axis_deca = True
