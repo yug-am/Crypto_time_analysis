@@ -7,7 +7,7 @@ Operations :
 - Decryption
 - Key size
 
-This is aimed at the recreation of  the graph in <a href="#Cryptography Book">Cryptography Book</a> Chapter 6: Public Key Crptography and RSA, Page 79.
+This is aimed at the recreation of  the graph in [Cryptography Book](#cryptography-book) Chapter 6: Public Key Crptography and RSA, Page 79.
 
 
 ## Features 
@@ -15,13 +15,14 @@ This is aimed at the recreation of  the graph in <a href="#Cryptography Book">Cr
 - Ability to set starting key size, key size range, no of iterations per key size, time unit and y axis ticks(labels).
 
 
-
+## Output
 ![RSA time with key](./readme_images/rsa_w_key_img.png)
 
 ![RSA time without key](./readme_images/rsa_wo_key_img.png)
 
 ## Setup
-Clone this repo to your desktop and install the <a href="#Libraries used">Libraries used</a> using [pip](https://pypi.org/project/pip/).
+
+Clone this repo to your desktop and install the [Libraries used](#libraries-used)</a> using [pip](https://pypi.org/project/pip/).
 
 ## Usage
 After you clone this repo to your desktop, go to its root directory and run with main.py file in your Pyhton IDE respective graph matplotlib dialog with output the graph.
