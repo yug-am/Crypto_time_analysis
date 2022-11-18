@@ -7,12 +7,12 @@ Operations :
 - Decryption
 - Key size
 
-This is aimed at the recreation of  the graph in [Cryptography Book](#cryptography-book) Chapter 6: Public Key Crptography and RSA, Page 79.
+This is aimed at the recreation of  the graph in [Cryptography Book](#cryptography-book) Chapter 6: Public Key Cryptography and RSA, Page 79, Figure 6.4.
 
 
 ## Features 
-- Saves and read data from respective data files in data_dump.
-- Ability to set starting key size, key size range, no of iterations per key size, time unit and y axis ticks(labels).
+- Saves and read data from respective data files in data_dump directory.
+- Ability to set starting key size, key size range, no of iterations per key size, time unit and y-axis ticks(labels).
 
 
 ## Output
@@ -25,12 +25,12 @@ This is aimed at the recreation of  the graph in [Cryptography Book](#cryptograp
 Clone this repo to your desktop and install the [Libraries used](#libraries-used)</a> using [pip](https://pypi.org/project/pip/).
 
 ## Usage
-After you clone this repo to your desktop, go to its root directory and run with main.py file in your Pyhton IDE respective graph matplotlib dialog with output the graph.
+After you clone this repo to your desktop, go to its root directory and run with main.py file in your Python IDE respective graph matplotlib dialog with the output graph.
 
 
 ## Libraries used
 
-This software uses the following open source packages:
+This project uses the following open source packages:
 
 - [Matplotlib](https://matplotlib.org/)
 - [Pickle](https://docs.python.org/3/library/pickle.html)
@@ -39,7 +39,7 @@ This software uses the following open source packages:
 
 
 
-## Cryptography Book
+## Cryptography Book :notebook_with_decorative_cover:
 Cryptography, Network Security, and Cyber Laws [Book](https://www.cengage.co.in/book-list/print/cryptography-network-security-and-cyber-laws-sl) authored by  Bernard L. Menezes | Ravinder Kumar.
 ISBN: 9789386858948
 Edition: 1st

@@ -33,6 +33,8 @@ $*.docx
 *.log
 *.sql
 *.sqlite
+# html #
+*.html
 
 # OS generated files #
 ######################
