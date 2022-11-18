@@ -1,5 +1,10 @@
-## RSA operations time plotting
-Plotting the time(in milliseconds) of following operations of [RSA cryptosystem ](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) using 
+# Cryptography operations time plotting
+##  Operations:
+- RSA 
+- Hashing
+
+##  RSA Operations
+Plotting the time(in microseconds) of following operations of [RSA cryptosystem ](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) using 
 [Cryptography](https://pypi.org/project/cryptography/) library in [Python](https://www.python.org/).
 
 Operations :
@@ -9,13 +14,17 @@ Operations :
 
 This is aimed at the recreation of  the graph in [Cryptography Book](#cryptography-book) Chapter 6: Public Key Cryptography and RSA, Page 79, Figure 6.4.
 
+## Hash operations
+Plotting the time(in microseconds) of Hash calculation for no. of iterations of for given input sizes using [RSA cryptosystem ](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) using 
+[Cryptography](https://pypi.org/project/cryptography/) library in [Python](https://www.python.org/).
 
-## Features 
-- Saves and read data from respective data files in data_dump directory.
-- Ability to set starting key size, key size range, no of iterations per key size, time unit and y-axis ticks(labels).
+### Hash Functions:
+- [SHA224](https://en.wikipedia.org/wiki/SHA-2)
+- [SHA256](https://en.bitcoinwiki.org/wiki/SHA-256)
+- [SHA384](https://en.wikipedia.org/wiki/SHA-3)
+- [SHA512](https://en.bitcoinwiki.org/wiki/SHA-512)
 
-
-## Output
+## Results
 
 RSA time with key            |  RSA time without key
 :-------------------------:|:-------------------------:
@@ -24,6 +33,23 @@ RSA time with key            |  RSA time without key
 SHA 256 Hash time            |  SHA 512 Hash time
 :-------------------------:|:-------------------------:
 ![SHA256](./readme_images/SHA256_hash.png)|![SHA512](./readme_images/SHA512_hash.png)
+
+
+
+SHA 224 Hash time            |  SHA 384 Hash time
+:-------------------------:|:-------------------------:
+![SHA256](./readme_images/SHA224.png)|![SHA512](./readme_images/SHA384.png)
+
+
+![SHA Compared](./readme_images/SHA_compared.png)
+
+
+## Features 
+- Ability to set starting key size, key size range, no of iterations per key size, time unit and y-axis ticks(labels).
+- Clubbing of points, multiple iteration and data average for error free data and smooth plot.
+- Saves and read data from respective data files in data_dump directory.
+
+
 
 
 

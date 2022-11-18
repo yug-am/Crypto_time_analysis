@@ -1,16 +1,19 @@
-# This is a sample Python script.
 from crypto_timer.grapher import grapher
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from hash_timer.compare_sha import compare_sha_grapher
+from key_exchange_timer.dh_key_exchange_grapher import *
 
 
 def time_cypto():
     #   launches cypto timer
-    grapher()
+    hash_compare = False
+    dhke = False
+    if hash_compare:
+        compare_sha_grapher()
+    elif dhke:
+        dh_key_exchange_grapher()
+    else:
+        grapher()
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     time_cypto()
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/

@@ -18,8 +18,13 @@ def hash_time(byte_size, time_factor, algo_name="SHA256", n_iterations=10):
 
     algo = hashes.SHA256()
     byte_to_hash = secrets.token_bytes(byte_size)
+    if algo_name == "SHA224":
+        algo = hashes.SHA224()
     if algo_name == "SHA256":
         algo = hashes.SHA256()
+    if algo_name == "SHA384":
+        algo = hashes.SHA384()
+
     if algo_name == "SHA512":
         algo = hashes.SHA512()
     hash_init_time = time.time()

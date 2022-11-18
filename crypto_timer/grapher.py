@@ -11,32 +11,33 @@ def grapher():
          Returns:
              Nil
                """
-    algo_name = "SHA512"
-    size_key_file_name = algo_name+"_size_key_file"
-    key_gen_file_name = algo_name+"_key_gen_size_file"
-    enc_file_name = algo_name+"_enc_size_file"
-    dec_file_name = algo_name+"_dec_size_file"
-    byte_file_name = algo_name + "_byte_size_file"
-    hash_file_name = algo_name + "_hash_size_file"
+    algo_name = "SHA384"
     plot_key_gen = True
-    read_from_file = False
-    handle_axis_overwriting = False
-    equi_spaced_axis_deca = True
+    read_from_file = True
     key_size_rounds = 4000
     n_iterations = 100
     key_size_from = 800
     plain_text = 'encrypt me hahaha knx'
     time_factor = 1000000
     batch_size = 500
+    hash_algos = ["SHA224", "SHA256", "SHA384", "SHA512"]
+    hash_byte_size_from = 4
+    hash_byte_sizes = 10000
+    handle_axis_overwriting = False
+    equi_spaced_axis_deca = True
+    data_heavy_algo = ["RSA", "DHKE"]
+    size_key_file_name = algo_name + "_size_key_file"
+    key_gen_file_name = algo_name + "_key_gen_size_file"
+    enc_file_name = algo_name + "_enc_size_file"
+    dec_file_name = algo_name + "_dec_size_file"
+    byte_file_name = algo_name + "_byte_size_file"
+    hash_file_name = algo_name + "_hash_size_file"
     size_ls = []
     key_ls = []
     enc_ls = []
     dec_ls = []
     byte_size_ls = []
     hash_ls = []
-    hash_algos = ["SHA256", "SHA512", ]
-    hash_byte_size_from = 4
-    hash_byte_sizes = 10000
     if not read_from_file:
         if algo_name in hash_algos:
             print("Hash flag")
@@ -68,9 +69,6 @@ def grapher():
         size_ls, key_ls, enc_ls, dec_ls = point_club_batch([size_ls, key_ls, enc_ls, dec_ls], batch_size)
     fig, ax = plt.subplots()
     if algo_name in hash_algos:
-        # from one because first result is abnormally high
-        # 100 batch sizes to avoid crowding
-        # scatter plot to avoid noises in line plot
         byte_size_ls_clubbed, hash_ls_clubbed = point_club_batch([byte_size_ls, hash_ls], batch_size)
         ax.plot(byte_size_ls_clubbed, hash_ls_clubbed, label="Hash computation", marker="o")
         plt.xlabel("Input size")

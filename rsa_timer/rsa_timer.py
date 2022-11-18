@@ -5,7 +5,6 @@ from cryptography.hazmat.primitives.asymmetric import padding
 from handy_function.math_function import avg
 
 
-
 def rsa_time(plain_text_bytes, time_factor, key_size=512, iterations=1):
     """Generates key for specified key size and returns with time of generation in milli seconds
 
