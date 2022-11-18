@@ -6,7 +6,7 @@ from key_exchange_timer.dh_key_exchange_grapher import *
 def time_cypto():
     #   launches cypto timer
     hash_compare = False
-    dhke = False
+    dhke = True
     if hash_compare:
         compare_sha_grapher()
     elif dhke:

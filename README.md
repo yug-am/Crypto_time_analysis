@@ -2,6 +2,7 @@
 ##  Operations:
 - RSA 
 - Hashing
+- [Diffie Hellman Key Exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange)
 
 ##  RSA Operations
 Plotting the time(in microseconds) of following operations of [RSA cryptosystem ](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) using 
@@ -42,7 +43,10 @@ SHA 224 Hash time            |  SHA 384 Hash time
 
 
 ![SHA Compared](./readme_images/SHA_compared.png)
+SHA compared
 
+![Diffie Hellman Key Exchange](./readme_images/DHKE.png)
+Diffie Hellman Key Exchange
 
 ## Features 
 - Ability to set starting key size, key size range, no of iterations per key size, time unit and y-axis ticks(labels).
@@ -81,6 +85,8 @@ Year : 2018
 
 
 ## Constraints ⚠
-[Cryptography library](https://pypi.org/project/cryptography/) used has limitation of minimum key size of 800 to avoid errors of  Data too long for key size
+-   RSA: [Cryptography library](https://pypi.org/project/cryptography/) used has limitation of minimum key size of 800 to avoid errors of  Data too long for key size
 even for empty string.
+-   SHA operations:     
+-   Diffie Hellman Key Exchange: [Cryptography library](https://pypi.org/project/cryptography/) used has limitation of minimum key size of 512 bytes fixed. 
 

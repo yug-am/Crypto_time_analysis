@@ -35,6 +35,7 @@ $*.docx
 *.sqlite
 # html #
 *.html
+*.pyc
 
 # OS generated files #
 ######################

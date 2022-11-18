@@ -10,13 +10,13 @@ def dh_key_exchange_grapher():
          Returns:
              Nil
                """
-    read_from_file = False
-    club_points = False
+    read_from_file = True
+    club_points = True
     n_iterations = 1
     time_factor = 1000
-    batch_size = 1
+    batch_size = 100
     key_size_from = 512
-    key_sizes = 10
+    key_sizes = 1000
     algo_name = "DHKE"
     key_size_file_name = algo_name + "_key_size_file"
     key_file_name = algo_name + "_key_time_file"
