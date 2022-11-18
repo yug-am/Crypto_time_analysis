@@ -2,16 +2,8 @@ from cryptography.hazmat.primitives.asymmetric import rsa
 import time
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.asymmetric import padding
+from handy_function.math_function import avg
 
-
-def avg(ls):
-    """"
-    Args:
-        ls : list of numbers
-    Returns:
-          return average of ls
-    """
-    return sum(ls) / len(ls)
 
 
 def rsa_time(plain_text_bytes, time_factor, key_size=512, iterations=1):

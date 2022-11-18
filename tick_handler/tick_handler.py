@@ -119,6 +119,7 @@ def point_club(pt_ls, group_size):
         curr_ptr += group_size
     return new_ls
 
+
 def point_club_batch(list_pt_ls, group_size):
     """generates list of points from average of batch sizes of original point list
 
@@ -134,9 +135,8 @@ def point_club_batch(list_pt_ls, group_size):
     for ls in list_pt_ls:
         ls = point_club(ls, group_size)
         master_ls.append(ls)
-    return  master_ls
+    return master_ls
 
-    pass
 
 def generate_coordinates(low, high):
     """generates list of coordinates in 10 raise to power for given low and high values

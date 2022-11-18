@@ -16,9 +16,17 @@ This is aimed at the recreation of  the graph in [Cryptography Book](#cryptograp
 
 
 ## Output
-![RSA time with key](./readme_images/rsa_w_key_img.png)
 
-![RSA time without key](./readme_images/rsa_wo_key_img.png)
+RSA time with key            |  RSA time without key
+:-------------------------:|:-------------------------:
+![RSA time with key](./readme_images/rsa_w_key_img.png)|![RSA time without key](./readme_images/rsa_wo_key_img.png)
+
+SHA 256 Hash time            |  SHA 512 Hash time
+:-------------------------:|:-------------------------:
+![SHA256](./readme_images/SHA256_hash.png)|![SHA512](./readme_images/SHA512_hash.png)
+
+
+
 
 ## Setup
 

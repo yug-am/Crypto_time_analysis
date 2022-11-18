@@ -1,20 +1,14 @@
 import time
 import os
-from Crypto.Cipher import AES
 import secrets
+from handy_function.math_function import avg
+from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 
-def avg(ls):
-    """"
-    Args:
-        ls : list of numbers
-    Returns:
-          return average of ls
-    """
-    return sum(ls) / len(ls)
+#   ------------work in progress##############
 
 
 def aes_time(plain_text_bytes, time_factor, key_size=128, iterations=1):
-    """Generates key for specified key size and returns with time of generation in milli seconds
+    """Generates key for specified key size and returns with time of generation in mprovided time factor
 
     Args:
         plain_text_bytes (bytes) : Plain text to be encrypted
