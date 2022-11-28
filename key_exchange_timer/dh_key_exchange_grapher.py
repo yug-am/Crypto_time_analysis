@@ -35,7 +35,7 @@ def dh_key_exchange_grapher():
     plt.plot(key_size_ls, key_ls, label=algo_name, marker="o")
     plt.ylabel("Time in milli seconds for key generation")
     plt.xlabel("Key size")
-    plt.title("Key generation time")
+    plt.title("Diffie Hellman Key Generation")
 
     plt.legend()
     plt.show()

@@ -27,6 +27,8 @@ def rsa_time(plain_text_bytes, time_factor, key_size=512, iterations=1):
             public_exponent=65537,
             key_size=key_size,
             )
+        pvt_nos = private_key.private_numbers()
+
         key_end_time = time.time()
         key_time_diff = key_end_time - key_init_time
         key_time.append(key_time_diff)

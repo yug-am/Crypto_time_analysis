@@ -11,11 +11,12 @@ def grapher():
          Returns:
              Nil
                """
-    algo_name = "SHA384"
+    algo_name = "RSA"
     plot_key_gen = True
     read_from_file = True
+    club_points = True
     key_size_rounds = 4000
-    n_iterations = 100
+    n_iterations = 1
     key_size_from = 800
     plain_text = 'encrypt me hahaha knx'
     time_factor = 1000000
@@ -25,6 +26,7 @@ def grapher():
     hash_byte_sizes = 10000
     handle_axis_overwriting = False
     equi_spaced_axis_deca = True
+    y_axis_fix = True
     data_heavy_algo = ["RSA", "DHKE"]
     size_key_file_name = algo_name + "_size_key_file"
     key_gen_file_name = algo_name + "_key_gen_size_file"
@@ -65,7 +67,7 @@ def grapher():
             key_ls = data_dump_read(key_gen_file_name)
             enc_ls = data_dump_read(enc_file_name)
             dec_ls = data_dump_read(dec_file_name)
-    if algo_name == "RSA":
+    if algo_name == "RSA" and club_points:
         size_ls, key_ls, enc_ls, dec_ls = point_club_batch([size_ls, key_ls, enc_ls, dec_ls], batch_size)
     fig, ax = plt.subplots()
     if algo_name in hash_algos:
@@ -77,23 +79,30 @@ def grapher():
     else:
         plt.title(algo_name + " operations time")
         plt.ylabel("Time in microseconds")
-        if plot_key_gen:
-            ax.plot(size_ls, key_ls, marker='x', label="Key generation")
-        ax.plot(size_ls, enc_ls, marker='x', label="Encryption")
-        ax.plot(size_ls, dec_ls, marker='x', label="Decryption")
+        if club_points:
+            if plot_key_gen:
+                ax.plot(size_ls, key_ls, marker='x', label="Key generation")
+            ax.plot(size_ls, enc_ls, marker='x', label="Encryption")
+            ax.plot(size_ls, dec_ls, marker='x', label="Decryption")
+        else:
+            if plot_key_gen:
+                ax.plot(size_ls, key_ls, label="Key generation", alpha=0.8)
+            ax.plot(size_ls, enc_ls, label="Encryption", alpha=0.8)
+            ax.plot(size_ls, dec_ls, label="Decryption", alpha=0.8)
         if algo_name == "RSA":
-
-            y_mini, y_maxi = ax.get_ylim()
-            offset = 550
-            size_ls_offset = [int(i-offset+1) for i in size_ls]
-            plt.xticks(size_ls, size_ls_offset)
-            if equi_spaced_axis_deca:
-                y_coor_ls, y_ticks_ls = equi_spaced_axis_interval(y_maxi)
-            else:
-                y_coor_ls, y_ticks_ls = ticks_generator(y_maxi, handle_overwriting=handle_axis_overwriting)
-            plt.yticks(y_coor_ls, y_ticks_ls)
+            if y_axis_fix:
+                y_mini, y_maxi = ax.get_ylim()
+                offset = 550
+                size_ls_offset = [int(i-offset+1) for i in size_ls]
+                plt.xticks(size_ls, size_ls_offset)
+                if equi_spaced_axis_deca:
+                    y_coor_ls, y_ticks_ls = equi_spaced_axis_interval(y_maxi)
+                else:
+                    y_coor_ls, y_ticks_ls = ticks_generator(y_maxi, handle_overwriting=handle_axis_overwriting)
+                plt.yticks(y_coor_ls, y_ticks_ls)
             plt.xlabel("Key size")
     if algo_name not in hash_algos:
         plt.margins(x=0)
     plt.legend()
+    print("We are good to go 🚀✨")
     plt.show()
