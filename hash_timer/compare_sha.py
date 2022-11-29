@@ -10,8 +10,8 @@ def compare_sha_grapher():
          Returns:
              Nil
                """
-    read_from_file = True
-    n_iterations = 100
+    read_from_file = False
+    n_iterations = 10
     time_factor = 1000000
     batch_size = 500
     hash_algos = ["SHA224", "SHA256", "SHA384", "SHA512"]

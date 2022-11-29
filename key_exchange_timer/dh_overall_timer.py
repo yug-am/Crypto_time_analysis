@@ -21,6 +21,6 @@ def dhke_overall_timer(time_factor=1000, key_size_from=512, key_sizes=512, n_ite
         key_size, key_time_val = dh_key_exchange_timer(time_factor, key_size, n_iterations=n_iterations)
         size_ls.append(key_size)
         key_ls.append(key_time_val)
-        print("key size :{key_size} Key_time :{key_time_val} DHKE"
+        print("key size: {key_size} Key_time: {key_time_val} DHKE"
               .format(key_size=key_size, key_time_val=int(key_time_val)))
     return [size_ls, key_ls]

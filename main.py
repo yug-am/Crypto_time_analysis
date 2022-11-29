@@ -8,10 +8,10 @@ def time_cypto():
     #   launches cypto timer
     hash_compare = False
     dhke = False
-    rsa = True
+    rsa_dd = False
     if hash_compare:
         compare_sha_grapher()
-    elif rsa:
+    elif rsa_dd:
         rsa_deep_dive()
     elif dhke:
         dh_key_exchange_grapher()

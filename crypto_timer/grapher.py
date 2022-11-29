@@ -13,9 +13,9 @@ def grapher():
                """
     algo_name = "RSA"
     plot_key_gen = True
-    read_from_file = True
+    read_from_file = False
     club_points = True
-    key_size_rounds = 4000
+    key_size_rounds = 2000
     n_iterations = 1
     key_size_from = 800
     plain_text = 'encrypt me hahaha knx'
@@ -27,7 +27,7 @@ def grapher():
     handle_axis_overwriting = False
     equi_spaced_axis_deca = True
     y_axis_fix = True
-    data_heavy_algo = ["RSA", "DHKE"]
+    #data_heavy_algo = ["RSA", "DHKE"]
     size_key_file_name = algo_name + "_size_key_file"
     key_gen_file_name = algo_name + "_key_gen_size_file"
     enc_file_name = algo_name + "_enc_size_file"
@@ -53,7 +53,7 @@ def grapher():
             size_ls, key_ls, enc_ls, dec_ls = overall_timer(plain_text_bytes, time_factor,
                                                             algo=algo_name, key_size_from=key_size_from,
                                                             key_sizes=key_size_rounds, n_iterations=n_iterations)
-
+            print(len(size_ls))
             data_dump_write(size_ls, size_key_file_name)
             data_dump_write(key_ls, key_gen_file_name)
             data_dump_write(enc_ls, enc_file_name)
@@ -67,6 +67,7 @@ def grapher():
             key_ls = data_dump_read(key_gen_file_name)
             enc_ls = data_dump_read(enc_file_name)
             dec_ls = data_dump_read(dec_file_name)
+
     if algo_name == "RSA" and club_points:
         size_ls, key_ls, enc_ls, dec_ls = point_club_batch([size_ls, key_ls, enc_ls, dec_ls], batch_size)
     fig, ax = plt.subplots()
@@ -103,6 +104,7 @@ def grapher():
             plt.xlabel("Key size")
     if algo_name not in hash_algos:
         plt.margins(x=0)
+
     plt.legend()
     print("We are good to go 🚀✨")
     plt.show()
